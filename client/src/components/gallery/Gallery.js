@@ -6,9 +6,8 @@ const Gallery = ({ rectangles, onRectangleClick }) => {
     return (
       <div className="gallery__item" onClick= {e => onRectangleClick(rectangle._id)} key={rectangle._id} >
         <Preview {...rectangle} />
-        <p className="gallery__item__icon"><i className="material-icons large">delete_forever</i></p>
+        <p className="gallery__item__icon"><i className="material-icons medium">delete_forever</i></p>
       </div>
-        
     );
   });
 

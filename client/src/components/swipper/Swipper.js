@@ -5,7 +5,7 @@ const Swipper = ({ label, type, onSwipperChanged, min = 1, max = 100, value = 50
     <div>
         <label>{label}:</label>
         <p className="range-field">
-        <input type="range" min={min} max={max} value={value} onChange = {e => onSwipperChanged(+e.target.value, type)} />
+          <input type="range" min={min} max={max} value={value} onChange = {e => onSwipperChanged(+e.target.value, type)} />
         </p>
     </div>  
   );

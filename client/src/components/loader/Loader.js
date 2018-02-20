@@ -1,6 +1,6 @@
 import React from "react";
 
-const Loader = ({ title, link }) => {
+const Loader = () => {
   return (
     <div className="progress">
       <div className="indeterminate"></div>
