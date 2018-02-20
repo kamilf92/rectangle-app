@@ -19,18 +19,18 @@ class Main extends Component {
     }
 
     getContentView() {
-        let { events, artist } = this.state;    
         switch(this.state.state) {
-          case STATE.LOADING:
-            return <Loader />
-          case STATE.GALLERY:
-            return <Gallery rectangles={this.state.rectangles} />       
+            case STATE.LOADING:
+                return <Loader />
+            case STATE.GALLERY:
+                return <Gallery rectangles={this.state.rectangles} />    
+            default:
+                return <Loader />
         }
       }
 
     async componentDidMount() {
-        //await addRectangle({color: "#009688", width: 50, height: 75, radius: 5});
-        this.setState({ state: STATE.LOADING});
+        this.setState({ state: STATE.LOADING });
         const rectangles = await getRectangles();
         this.setState({ rectangles, state: STATE.GALLERY })
     }

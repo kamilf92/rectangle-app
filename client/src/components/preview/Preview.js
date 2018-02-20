@@ -5,7 +5,7 @@ const Preview = ({ width, height, color, radius }) => {
         width,
         height,
         backgroundColor: color,
-        borderRadius: radius
+        borderRadius: radius + "%"
     };
 
   return (

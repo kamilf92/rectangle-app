@@ -31,3 +31,41 @@ html {
   justify-content: center;
   margin: 10px;
 }
+
+.color-picker input {
+  width: 50px;
+  height: 50px;
+  border: none;
+  cursor: pointer;
+  display: block;
+  margin-top: 20px;
+}
+
+.add-rectangle__content {
+  display: flex;
+}
+
+.add-rectangle__preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-rectangle__button {
+  margin-top: 30px;
+}
+
+@media (max-width: 600px) {
+  .add-rectangle__content {
+    display: block;
+    overflow: hidden;
+  }
+
+  .add-rectangle__preview {
+    margin-top: 20px;
+  }
+
+  .add-rectangle__button {
+    width: 100%;
+  }
+}
