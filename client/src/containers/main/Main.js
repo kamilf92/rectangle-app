@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import Preview from "../../components/preview/Preview";
-import { Service } from "../../services/Service";
-
+import Gallery from "../../components/gallery/Gallery";
+import { getRectangles } from "../../services/Service";
+import Header from "../../components/header/Header";
 
 class Main extends Component {
     constructor(props) {
@@ -11,17 +11,21 @@ class Main extends Component {
             rectangles: []
         };
     }
+
     async componentDidMount() {
-        //await Service.addRectangle({color: "#9e9e9e9e", width: 100, height: 100, radius: 10});
-        const rectangles = await Service.getRectangles();
-        console.log(rectangles)
+        //await addRectangle({color: "#009688", width: 50, height: 75, radius: 5});
+        const rectangles = await getRectangles();
         this.setState({ rectangles })
     }
 
     render() {
         return ( 
-            <Preview color="#9e9e9e9e" width={100} height={100} radius={5} />
-        )
+            <div>
+                <Header link={{path: "/rectangle/new", icon: "add"}} title="Gallery" />
+                <Gallery rectangles={this.state.rectangles} />
+            </div>
+            
+        );
     }
 }
 

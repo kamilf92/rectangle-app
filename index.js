@@ -9,7 +9,6 @@ mongoose.connect(config.mongoURI);
 
 const app = express();
 
-//middlewars
 app.use(bodyParser.json());
 
 require("./api/Rectangles/routes")(app);

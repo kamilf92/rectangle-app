@@ -9,7 +9,9 @@ const Preview = ({ width, height, color, radius }) => {
     };
 
   return (
-    <div style={styles}></div>
+    <div className="card white preview">
+      <div style={styles}></div>
+    </div>
   );
 };
 
