@@ -23,3 +23,18 @@ export const addRectangle = async (options) =>  {
     }
 };
 
+export const removeRectangle = async (id) =>  {
+    try {
+        await fetch("/api/remove_rectangle", {
+            method: "POST",
+            body: JSON.stringify({id}),
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            }
+        });
+    } catch (error) {
+        console.log(error)
+    }
+};
+
