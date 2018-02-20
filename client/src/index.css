@@ -68,12 +68,13 @@ html {
 }
 
 .color-picker input {
-  width: 50px;
-  height: 50px;
-  border: none;
-  cursor: pointer;
-  display: block;
-  margin-top: 20px;
+  height: 17px;
+  width: 38px!important;
+}
+
+.color-picker .rc-color-picker-panel-params-hex {
+  height: 17px;
+  width: 55px!important;
 }
 
 .add-rectangle__content {
@@ -81,6 +82,10 @@ html {
 }
 
 .add-rectangle__preview {
+  margin-top: 20px;
+}
+
+.add-rectangle__preview, .add-rectangle__color-picker {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -101,10 +106,6 @@ html {
   .add-rectangle__content {
     display: block;
     overflow: hidden;
-  }
-
-  .add-rectangle__preview {
-    margin-top: 20px;
   }
 
   .add-rectangle__button {

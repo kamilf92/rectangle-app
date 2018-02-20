@@ -1,5 +1,11 @@
 export const getRectangles = async () =>  {
-        let data, response = await fetch("/api/rectangles", {method: "GET"});
+        let data, response = await fetch("/api/rectangles", {
+            method: "GET",
+            headers: {
+                "pragma": "no-cache",
+                "cache-control": "no-cache"
+            }
+        });
         if (!response.ok) {
             throw Error(response.statusText);
         }

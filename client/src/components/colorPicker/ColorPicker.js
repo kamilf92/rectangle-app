@@ -1,10 +1,12 @@
 import React from "react";
+import { Panel as ColorPickerPanel } from "rc-color-picker";
+import "rc-color-picker/assets/index.css";
 
 const ColorPicker = ({ label, color, onColorChanged }) => {
   return (
     <div className="color-picker">
       <label>{label}:</label>
-      <input type="color" value={color} onChange = {e => onColorChanged(e.target.value)} />
+      <ColorPickerPanel enableAlpha={false} color={color} onChange={onColorChanged} mode="RGB" />
     </div>
   );
 };
