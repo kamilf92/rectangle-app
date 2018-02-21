@@ -1,5 +1,6 @@
 import React from "react";
 import Preview from "../preview/Preview";
+import "./Gallery.css";
 
 const Gallery = ({ rectangles, onRectangleClick }) => {
   const galleryList = rectangles.map(rectangle => {

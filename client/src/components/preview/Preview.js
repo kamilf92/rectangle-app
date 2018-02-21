@@ -1,4 +1,5 @@
 import React from "react";
+import "./Preview.css";
 
 const Preview = ({ width, height, color, radius }) => {
     const styles = {

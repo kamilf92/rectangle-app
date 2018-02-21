@@ -1,0 +1,9 @@
+.color-picker input {
+    height: 17px;
+    width: 38px!important;
+  }
+  
+  .color-picker .rc-color-picker-panel-params-hex {
+    height: 17px;
+    width: 55px!important;
+  }

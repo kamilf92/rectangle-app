@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./AddRectangle.css";
 import { addRectangle } from "../../services/Service";
 import ErrorMessage from "../../components/errorMessage/ErrorMessage";
 import Header from "../../components/header/Header";

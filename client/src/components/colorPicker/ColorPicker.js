@@ -1,6 +1,7 @@
 import React from "react";
 import { Panel as ColorPickerPanel } from "rc-color-picker";
 import "rc-color-picker/assets/index.css";
+import "./ColorPicker.css";
 
 const ColorPicker = ({ label, color, onColorChanged }) => {
   return (

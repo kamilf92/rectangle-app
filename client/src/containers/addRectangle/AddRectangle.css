@@ -1,0 +1,25 @@
+.add-rectangle__content {
+    display: flex;
+  }
+  
+  .add-rectangle__preview {
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .add-rectangle__preview, .add-rectangle__color-picker {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  @media (max-width: 600px) {
+    .add-rectangle__content {
+      display: block;
+      overflow: hidden;
+    }
+  
+    .add-rectangle__button {
+      width: 100%;
+    }
+  }
