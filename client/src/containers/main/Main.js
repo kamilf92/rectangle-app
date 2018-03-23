@@ -4,6 +4,7 @@ import { getRectangles, removeRectangle } from "../../services/Service";
 import Header from "../../components/header/Header";
 import Loader from "../../components/loader/Loader";
 import ErrorMessage from "../../components/errorMessage/ErrorMessage";
+import KeenClient from '../../services/KeenClient';
 
 const STATE = {
     LOADING: "loading",
@@ -19,8 +20,16 @@ class Main extends Component {
             state: STATE.LOADING
         };
 
-        this.removeRectangle = this.removeRectangle.bind(this);
-    }
+		this.removeRectangle = this.removeRectangle.bind(this);
+	}
+	
+	recordKeenRectangleRemove() {
+		KeenClient.recordEvent('click', {
+			action: {
+				intent: 'remove-rectangle'
+			}
+		});
+	}
 
     getContentView() {
         switch(this.state.state) {
@@ -43,7 +52,8 @@ class Main extends Component {
     async removeRectangle(id) {
         this.setState({ state: STATE.LOADING });
         try {
-            await removeRectangle(id);
+			await removeRectangle(id);
+			this.recordKeenRectangleRemove();
             await this.getRectangles();
         } catch (error) {
             this.setState({ state: STATE.ERROR });

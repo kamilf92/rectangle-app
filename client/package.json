@@ -8,6 +8,7 @@
     }
   },
   "dependencies": {
+    "keen-js": "^4.3.0",
     "rc-color-picker": "^1.2.3",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
