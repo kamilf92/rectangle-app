@@ -9,30 +9,30 @@ import ColorPicker from "../../components/colorPicker/ColorPicker";
 import KeenClient from '../../services/KeenClient';
 
 const TYPES = {
-    WIDTH: "width",
-    HEIGHT: "height",
-    RADIUS: "radius"
+	WIDTH: "width",
+	HEIGHT: "height",
+	RADIUS: "radius"
 };
 
 const STATE = {
-    FORM: "form",
-    ERROR: "error"
+	FORM: "form",
+	ERROR: "error"
 };
 
 class AddRectangle extends Component {
-    constructor(props) {
-        super(props);
+	constructor(props) {
+		super(props);
 
-        this.state = {
-            width: 50,
-            height: 50,
-            radius: 25,
-            color: "#26a69a",
-            state: STATE.FORM
-        }
+		this.state = {
+			width: 50,
+			height: 50,
+			radius: 25,
+			color: "#26a69a",
+			state: STATE.FORM
+		};
 
-        this.onSwipperChanged = this.onSwipperChanged.bind(this);
-        this.onColorChanged = this.onColorChanged.bind(this);
+		this.onSwipperChanged = this.onSwipperChanged.bind(this);
+		this.onColorChanged = this.onColorChanged.bind(this);
 		this.onSaveClicked = this.onSaveClicked.bind(this);
 	}
 
@@ -44,65 +44,73 @@ class AddRectangle extends Component {
 		});
 	}
 
-    onSwipperChanged(value, type) {
-        this.setState({[type]: value});
-    }
+	onSwipperChanged(value, type) {
+		this.setState({
+			[type]: value
+		});
+	}
 
-    onColorChanged({ color }) {
-        this.setState({ color });
-    }
+	onColorChanged({
+		color
+	}) {
+		this.setState({
+			color
+		});
+	}
 
-    async onSaveClicked() {
-        try {
+	async onSaveClicked() {
+		try {
 			await addRectangle(this.state);
 			this.recordKeenRectangleAdd();
-            this.props.history.push("/");
-        } catch (error) {
-            this.setState({ state: STATE.ERROR});
-        }
-    }
+			this.props.history.push("/");
+		} catch (error) {
+			this.setState({
+				state: STATE.ERROR
+			});
+		}
+	}
 
-    getContentView() {
-        switch(this.state.state) {
-            case STATE.ERROR: 
-                return <ErrorMessage />
-            default:
-                return this.getFormView();
-        }
-    }
+	getContentView() {
+		switch (this.state.state) {
+			case STATE.ERROR:
+				return <ErrorMessage />;
+			default:
+				return this.getFormView();
+		}
+	}
 
-    getFormView() {
-        return (
-            <div>
-                <div className="add-rectangle__content">
-                    <div className="col l7 m7 s12 add-rectangle__filters">
-                        <Swipper label="Rectangle width" type={TYPES.WIDTH} onSwipperChanged={this.onSwipperChanged} value={this.state.width} />
-                        <Swipper label="Rectangle height" type={TYPES.HEIGHT} onSwipperChanged={this.onSwipperChanged} value={this.state.height} />
-                        <Swipper label="Rectangle radius" type={TYPES.RADIUS} onSwipperChanged={this.onSwipperChanged} value={this.state.radius} min={0} max={50} />
-                        
-                    </div>
-                    <div className="col l5 m5 s12 add-rectangle__color-picker">
-                        <ColorPicker label="Rectangle color" color={this.state.color} onColorChanged={this.onColorChanged} />
-                    </div> 
-                </div>
-                <div className="col s12 add-rectangle__preview">
-                    <Preview {...this.state} />
-                </div> 
-                <div className="col s12">
-                    <button className="waves-effect waves-light btn left add-rectangle__button" onClick={this.onSaveClicked}>Save</button>
-                </div>  
-            </div>       
-        );
-    }
+	getFormView() {
+		return (
+			<div>
+				<div className="add-rectangle__content">
+					<div className="col l7 m7 s12 add-rectangle__filters">
+						<Swipper label="Rectangle width" type={TYPES.WIDTH} onSwipperChanged={this.onSwipperChanged} value={this.state.width} />
+						<Swipper label="Rectangle height" type={TYPES.HEIGHT} onSwipperChanged={this.onSwipperChanged} value={this.state.height} />
+						<Swipper label="Rectangle radius" type={TYPES.RADIUS} onSwipperChanged={this.onSwipperChanged} value={this.state.radius} min={0} max={50} />
+						
+					</div>
+					<div className="col l5 m5 s12 add-rectangle__color-picker">
+						<ColorPicker label="Rectangle color" color={this.state.color} onColorChanged={this.onColorChanged} />
+					</div>
+				</div>
+				<div className="col s12 add-rectangle__preview">
+					<Preview {...this.state} />
+				</div>
+				<div className="col s12">
+					<button className="waves-effect waves-light btn left add-rectangle__button" onClick={this.onSaveClicked}>Save</button>
+				</div>
+			</div>
+		);
+	}
 
-    render() {
-        return (
-            <div className="row add-rectangle">
-                <Header link={{path: "/", icon: "arrow_back"}} title="Add rectangle" />
-                {this.getContentView()}
-            </div>
-        );
-    }
+	render() {
+		return (
+			<div className="row add-rectangle">
+				<Header link={{path: "/", icon: "arrow_back"}} title="Add rectangle" />
+				{this.getContentView()}
+			</div>
+		);
+	}
 }
 
 export default AddRectangle;

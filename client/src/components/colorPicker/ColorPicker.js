@@ -4,12 +4,12 @@ import "rc-color-picker/assets/index.css";
 import "./ColorPicker.css";
 
 const ColorPicker = ({ label, color, onColorChanged }) => {
-  return (
-    <div className="color-picker">
-      <label>{label}:</label>
-      <ColorPickerPanel enableAlpha={false} color={color} onChange={onColorChanged} mode="RGB" />
-    </div>
-  );
+	return (
+		<div className="color-picker">
+			<label>{label}:</label>
+			<ColorPickerPanel enableAlpha={false} color={color} onChange={onColorChanged} mode="RGB" />
+		</div>
+	);
 };
 
 export default ColorPicker;

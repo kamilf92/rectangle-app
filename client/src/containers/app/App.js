@@ -6,8 +6,8 @@ import AddRectangle from "../addRectangle/AddRectangle";
 import Dashboard from "../dashboard/Dashboard";
 
 class App extends Component {
-  render() {
-    return (
+	render() {
+		return (
 			<BrowserRouter>
 				<div className="container">
 					<Route exact path="/" component={Main} />
@@ -15,8 +15,8 @@ class App extends Component {
 					<Route path="/dashboard" component={Dashboard} />
 				</div>
 			</BrowserRouter>
-		)
-   }
+		);
+	}
 }
 
 export default App;

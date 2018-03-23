@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import "./Header.css";
 
 const Header = ({ title, link }) => {
-  return (
-    <header className="header card white">
-        <p className="header__title">{title}</p>
-        <Link to={link.path} className="header__link btn-floating btn-medium waves-light">
-            <i className="material-icons">{link.icon}</i>
-        </Link>
-    </header>
-  );
+	return (
+		<header className="header card white">
+			<p className="header__title">{title}</p>
+			<Link to={link.path} className="header__link btn-floating btn-medium waves-light">
+				<i className="material-icons">{link.icon}</i>
+			</Link>
+		</header>
+	);
 };
 
 export default Header;

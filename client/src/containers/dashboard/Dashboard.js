@@ -16,10 +16,10 @@ class Dashboard extends Component {
 	runQueries() {
 		KeenClient
 			.query('count', {
-				event_collection: "pageviews",
-				group_by: ["url.info.path"],
-				timeframe: "this_14_days ",
-				timezone: "Europe/Paris"
+				event_collection: 'pageviews',
+				group_by: ['url.info.path'],
+				timeframe: 'this_14_days',
+				timezone: 'Europe/Paris'
 			})
 			.then(data => {
 				//this.setState({ data });
@@ -33,20 +33,20 @@ class Dashboard extends Component {
 			const chart = new Keen.Dataviz()
 				.el(this.el)
 				.height(240)
-				.title("Pageviews by url")
-				.type("piechart")
+				.title('Pageviews by url')
+				.type('piechart')
 				.prepare();
 
 			chart
 				.data(data)
 				.render();
 		}
-	}	
+	}
 	
 	render() {
 		return (
-			<div ref={(div) => this.el = div}></div>
-		)
+			<div ref={(div) => this.el = div} />
+		);
 	}
 }
 

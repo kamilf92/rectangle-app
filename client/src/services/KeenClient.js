@@ -16,6 +16,6 @@ const KeenClient = () => {
 			return instance;
 		}
 	};
-}
+};
 
 export default new KeenClient().getInstance(); //singletone pattern

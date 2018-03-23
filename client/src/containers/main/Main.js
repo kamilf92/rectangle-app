@@ -7,22 +7,22 @@ import ErrorMessage from "../../components/errorMessage/ErrorMessage";
 import KeenClient from '../../services/KeenClient';
 
 const STATE = {
-    LOADING: "loading",
-    GALLERY: "gallery",
-    ERROR: "error"
+	LOADING: "loading",
+	GALLERY: "gallery",
+	ERROR: "error"
 };
 class Main extends Component {
-    constructor(props) {
-        super(props);
+	constructor(props) {
+		super(props);
 
-        this.state = {
-            rectangles: [],
-            state: STATE.LOADING
-        };
+		this.state = {
+			rectangles: [],
+			state: STATE.LOADING
+		};
 
 		this.removeRectangle = this.removeRectangle.bind(this);
 	}
-	
+
 	recordKeenRectangleRemove() {
 		KeenClient.recordEvent('click', {
 			action: {
@@ -31,53 +31,64 @@ class Main extends Component {
 		});
 	}
 
-    getContentView() {
-        switch(this.state.state) {
-            case STATE.LOADING:
-                return <Loader />
-            case STATE.GALLERY:
-                return <Gallery rectangles={this.state.rectangles} onRectangleClick={this.removeRectangle} />    
-            case STATE.ERROR: 
-                return <ErrorMessage />
-            default:
-                return <Loader />
-        }
-    }
+	getContentView() {
+		switch (this.state.state) {
+			case STATE.LOADING:
+				return <Loader />;
+			case STATE.GALLERY:
+				return <Gallery rectangles={this.state.rectangles} onRectangleClick={this.removeRectangle} />;
+			case STATE.ERROR:
+				return <ErrorMessage />;
+			default:
+				return <Loader />;
+		}
+	}
 
-    componentDidMount() {
-        this.setState({ state: STATE.LOADING });
-        this.getRectangles();
-    }
+	componentDidMount() {
+		this.setState({
+			state: STATE.LOADING
+		});
+		this.getRectangles();
+	}
 
-    async removeRectangle(id) {
-        this.setState({ state: STATE.LOADING });
-        try {
+	async removeRectangle(id) {
+		this.setState({
+			state: STATE.LOADING
+		});
+		try {
 			await removeRectangle(id);
 			this.recordKeenRectangleRemove();
-            await this.getRectangles();
-        } catch (error) {
-            this.setState({ state: STATE.ERROR });
-        }  
-    }
+			await this.getRectangles();
+		} catch (error) {
+			this.setState({
+				state: STATE.ERROR
+			});
+		}
+	}
 
-    async getRectangles() {
-        try {
-            const rectangles = await getRectangles();
-            this.setState({ rectangles, state: STATE.GALLERY });
-        } catch (error) {
-            this.setState({ state: STATE.ERROR });
-        }     
-    }
+	async getRectangles() {
+		try {
+			const rectangles = await getRectangles();
+			this.setState({
+				rectangles,
+				state: STATE.GALLERY
+			});
+		} catch (error) {
+			this.setState({
+				state: STATE.ERROR
+			});
+		}
+	}
 
-    render() {
-        return ( 
-            <div>
-                <Header link={{path: "/rectangle/new", icon: "add"}} title="Gallery" />
-                {this.getContentView()}
-            </div>
-            
-        );
-    }
+	render() {
+		return (
+			<div>
+				<Header link={{path: "/rectangle/new", icon: "add"}} title="Gallery" />
+				{this.getContentView()}
+			</div>
+			
+		);
+	}
 }
 
 export default Main;
