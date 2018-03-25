@@ -6,7 +6,7 @@ import Header from "../../components/header/Header";
 import Preview from "../../components/preview/Preview";
 import Swipper from "../../components/swipper/Swipper";
 import ColorPicker from "../../components/colorPicker/ColorPicker";
-import KeenClient from '../../services/KeenClient';
+import KeenClient from "../../services/KeenClient";
 
 const TYPES = {
 	WIDTH: "width",
@@ -20,53 +20,38 @@ const STATE = {
 };
 
 class AddRectangle extends Component {
-	constructor(props) {
-		super(props);
 
-		this.state = {
-			width: 50,
-			height: 50,
-			radius: 25,
-			color: "#26a69a",
-			state: STATE.FORM
-		};
-
-		this.onSwipperChanged = this.onSwipperChanged.bind(this);
-		this.onColorChanged = this.onColorChanged.bind(this);
-		this.onSaveClicked = this.onSaveClicked.bind(this);
+	state = {
+		width: 50,
+		height: 50,
+		radius: 25,
+		color: "#26a69a",
+		state: STATE.FORM
 	}
 
 	recordKeenRectangleAdd() {
-		KeenClient.recordEvent('click', {
+		KeenClient.recordEvent("click", {
 			action: {
-				intent: 'add-rectangle'
+				intent: "add-rectangle"
 			}
 		});
 	}
 
-	onSwipperChanged(value, type) {
-		this.setState({
-			[type]: value
-		});
+	onSwipperChanged = (value, type) => {
+		this.setState({ [type]: value });
 	}
 
-	onColorChanged({
-		color
-	}) {
-		this.setState({
-			color
-		});
+	onColorChanged = ({ color }) => {
+		this.setState({ color });
 	}
 
-	async onSaveClicked() {
+	onSaveClicked = async () => {
 		try {
 			await addRectangle(this.state);
 			this.recordKeenRectangleAdd();
 			this.props.history.push("/");
 		} catch (error) {
-			this.setState({
-				state: STATE.ERROR
-			});
+			this.setState({ state: STATE.ERROR });
 		}
 	}
 

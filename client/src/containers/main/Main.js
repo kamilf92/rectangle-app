@@ -12,15 +12,10 @@ const STATE = {
 	ERROR: "error"
 };
 class Main extends Component {
-	constructor(props) {
-		super(props);
 
-		this.state = {
-			rectangles: [],
-			state: STATE.LOADING
-		};
-
-		this.removeRectangle = this.removeRectangle.bind(this);
+	state = {
+		rectangles: [],
+		state: STATE.LOADING
 	}
 
 	recordKeenRectangleRemove() {
@@ -45,24 +40,18 @@ class Main extends Component {
 	}
 
 	componentDidMount() {
-		this.setState({
-			state: STATE.LOADING
-		});
+		this.setState({ state: STATE.LOADING });
 		this.getRectangles();
 	}
 
-	async removeRectangle(id) {
-		this.setState({
-			state: STATE.LOADING
-		});
+	removeRectangle = async (id) => {
+		this.setState({ state: STATE.LOADING });
 		try {
 			await removeRectangle(id);
 			this.recordKeenRectangleRemove();
 			await this.getRectangles();
 		} catch (error) {
-			this.setState({
-				state: STATE.ERROR
-			});
+			this.setState({ state: STATE.ERROR });
 		}
 	}
 
@@ -74,9 +63,7 @@ class Main extends Component {
 				state: STATE.GALLERY
 			});
 		} catch (error) {
-			this.setState({
-				state: STATE.ERROR
-			});
+			this.setState({ state: STATE.ERROR });
 		}
 	}
 

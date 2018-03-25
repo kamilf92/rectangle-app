@@ -7,8 +7,7 @@ import KeenClient from './services/KeenClient';
 
 KeenClient.initAutoTracking({
 	recordClicks: true,
-	recordPageViews: true,
-	recordFormSubmits: true
+	recordPageViews: true
 });
 
 ReactDOM.render(<App />, document.getElementById('root'));

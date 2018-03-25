@@ -1,5 +1,5 @@
-import Keen from 'keen-js';
-import config from '../config';
+import Keen from "keen-js";
+import config from "../config";
 
 const KeenClient = () => {
 	let instance;
