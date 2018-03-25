@@ -1,13 +1,13 @@
 import React from "react";
 import Keen from "keen-js";
 
-const BarChart = ({ data, title }) => {
+const Chart = ({ data, title, type }) => {
 	function showChart(el) {
 		if (el) {
 			const chart = new Keen.Dataviz()
 				.el(el)
 				.title(title)
-				.type("columnchart")
+				.type(type)
 				.prepare();
 
 			chart.data(data).render();
@@ -19,4 +19,9 @@ const BarChart = ({ data, title }) => {
 	);
 };
 
-export default BarChart;
+const CHART_TYPES = {
+	BAR: "columnchart",
+	PIE: "piechart"
+};
+
+export { Chart, CHART_TYPES };

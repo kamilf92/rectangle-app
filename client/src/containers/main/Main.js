@@ -4,7 +4,7 @@ import { getRectangles, removeRectangle } from "../../services/Service";
 import Header from "../../components/header/Header";
 import Loader from "../../components/loader/Loader";
 import ErrorMessage from "../../components/errorMessage/ErrorMessage";
-import KeenClient from '../../services/KeenClient';
+import KeenClient from "../../services/KeenClient";
 
 const STATE = {
 	LOADING: "loading",
@@ -19,9 +19,9 @@ class Main extends Component {
 	}
 
 	recordKeenRectangleRemove() {
-		KeenClient.recordEvent('click', {
+		KeenClient.recordEvent("click", {
 			action: {
-				intent: 'remove-rectangle'
+				intent: "remove-rectangle"
 			}
 		});
 	}

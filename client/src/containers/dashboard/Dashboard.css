@@ -1,0 +1,9 @@
+.keen-dataviz .keen-dataviz-title {
+	font-family: "Roboto", sans-serif;
+	border-bottom: 1px solid #ededed;
+    margin-bottom: 10px;
+}
+
+.dashboard__charts .card {
+	padding: 10px;
+}

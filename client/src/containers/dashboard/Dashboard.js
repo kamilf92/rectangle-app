@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { getPageViewsData, getActionsData } from "../../services/QueryServices";
 import Header from "../../components/header/Header";
-import PieChart from "../../components/pie-chart/PieChart";
-import BarChart from "../../components/bar-chart/BarChart";
+import { Chart, CHART_TYPES } from "../../components/chart/Chart";
 import Loader from "../../components/loader/Loader";
 import ErrorMessage from "../../components/errorMessage/ErrorMessage";
+import "./Dashboard.css";
 
 const STATE = {
 	LOADING: "loading",
@@ -36,6 +36,23 @@ class Dashboard extends Component {
 		}
 	}
 
+	renderCharts() {
+		return (
+			<section className="row dashboard__charts">
+				<div className="col l6 m6 s12">
+					<section className="card white">
+						<Chart data={this.state.pageViewsData} title="Pageviews by url" type={CHART_TYPES.PIE} />
+					</section>
+				</div>
+				<div className="col l6 m6 s12">
+					<section className="card white">
+						<Chart data={this.state.actionsData} title="Actions on page" type={CHART_TYPES.BAR} />
+					</section>
+				</div>
+			</section>
+		);
+	}
+
 	getContentView() {
 		switch (this.state.state) {
 			case STATE.LOADING:
@@ -43,16 +60,7 @@ class Dashboard extends Component {
 			case STATE.ERROR:
 				return <ErrorMessage />;
 			case STATE.CHART:
-				return (
-					<section>
-						<section className="card white col l6 m6 s12">
-							<PieChart data={this.state.pageViewsData} title="Pageviews by url" />
-						</section>
-						<section className="card white col l6 m6 s12">
-							<BarChart data={this.state.actionsData} title="Actions on page" />
-						</section>
-					</section>
-				);
+				return this.renderCharts();
 			default:
 				return <Loader />;
 		}

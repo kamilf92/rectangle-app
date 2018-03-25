@@ -8,6 +8,7 @@
     }
   },
   "dependencies": {
+    "keen-explorer": "^3.2.0",
     "keen-js": "^4.3.0",
     "rc-color-picker": "^1.2.3",
     "react": "^16.2.0",
@@ -19,8 +20,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-	"eject": "react-scripts eject",
-	"lint": "eslint src"
+    "eject": "react-scripts eject",
+    "lint": "eslint src"
   },
   "devDependencies": {
     "eslint": "4.9.0",
