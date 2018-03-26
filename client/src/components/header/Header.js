@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import "./Header.css";
 
 const Header = ({ title, link }) => {
@@ -11,6 +12,11 @@ const Header = ({ title, link }) => {
 			</Link>
 		</header>
 	);
+};
+
+Header.propTypes = {
+	title: PropTypes.string,
+	link: PropTypes.objectOf(PropTypes.string).isRequired
 };
 
 export default Header;

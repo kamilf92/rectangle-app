@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const Swipper = ({ label, type, onSwipperChanged, min = 1, max = 100, value = 50}) => {
 	return (
@@ -9,6 +10,15 @@ const Swipper = ({ label, type, onSwipperChanged, min = 1, max = 100, value = 50
 			</p>
 		</div>
 	);
+};
+
+Swipper.propTypes = {
+	label: PropTypes.string,
+	type: PropTypes.string,
+	onSwipperChanged: PropTypes.func.isRequired,
+	min: PropTypes.number,
+	max: PropTypes.number,
+	value: PropTypes.number
 };
 
 export default Swipper;

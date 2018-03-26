@@ -49,7 +49,7 @@ class AddRectangle extends Component {
 		try {
 			await addRectangle(this.state);
 			this.recordKeenRectangleAdd();
-			this.props.history.push("/");
+			this.props.history.push("/gallery");
 		} catch (error) {
 			this.setState({ state: STATE.ERROR });
 		}
@@ -91,7 +91,7 @@ class AddRectangle extends Component {
 	render() {
 		return (
 			<div className="row add-rectangle">
-				<Header link={{path: "/", icon: "arrow_back"}} title="Add rectangle" />
+				<Header link={{path: "/gallery", icon: "arrow_back"}} title="Add rectangle" />
 				{this.getContentView()}
 			</div>
 		);

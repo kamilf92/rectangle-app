@@ -1,6 +1,6 @@
 # Description
 
-"Pimp my rect" app is coded for an interview. The project is based on the starter "create-react-app".
+The project is based on the starter "create-react-app".
 
 The application is based on MERN stack. I use the following frameworks:
 - React
@@ -8,13 +8,13 @@ The application is based on MERN stack. I use the following frameworks:
 - Express
 - MongoDB
 - Materialize css
+- Keen.io (https://github.com/keen/keen-js)
 
 ...
 
 ## Getting Started
 
 You should have installed node(>8.0.0) and npm.
-
 
 ### Installing
 
@@ -37,19 +37,23 @@ The client will be available at http://localhost:3000
 The server will be available at http://localhost:5000
 
 
-To run only client
+To run only Front-end tests
 
 ```
-npm run client
+cd client
+npm test
 ```
 
-The client will be available at http://localhost:3000
-
-
-To run only server
+To run only Front-end tests with coverage
 
 ```
-npm run server
+cd client
+npm test -- --coverage
 ```
 
-The server will be available at http://localhost:5000
+To run only Front-end EsLint
+
+```
+cd client
+npm run lint
+```

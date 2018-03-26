@@ -3,8 +3,9 @@ import { shallow } from "enzyme";
 import Swipper from "./Swipper";
 
 it("Should render component with label", () => {
+	const callback = jest.fn();
 	const label = "Example label";
-	const swipper = shallow(<Swipper label={label} />);
+	const swipper = shallow(<Swipper label={label} onSwipperChanged={callback} />);
 	expect(swipper.contains(label)).toEqual(true);
 });
 

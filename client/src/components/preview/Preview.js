@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./Preview.css";
 
 const Preview = ({ width, height, color, radius }) => {
@@ -14,6 +15,13 @@ const Preview = ({ width, height, color, radius }) => {
 			<div style={styles} className="preview__content" />
 		</div>
 	);
+};
+
+Preview.propTypes = {
+	width: PropTypes.number,
+	height: PropTypes.number,
+	color: PropTypes.string,
+	radius: PropTypes.number
 };
 
 export default Preview;
