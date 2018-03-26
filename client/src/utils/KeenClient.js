@@ -18,4 +18,4 @@ const KeenClient = () => {
 	};
 };
 
-export default new KeenClient().getInstance(); //singletone pattern
+export default KeenClient().getInstance(); //singletone pattern

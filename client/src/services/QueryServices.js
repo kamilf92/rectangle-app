@@ -1,4 +1,4 @@
-import KeenClient from "./KeenClient";
+import KeenClient from "../utils/KeenClient";
 
 export const getPageViewsData = async () => {
 	return await KeenClient

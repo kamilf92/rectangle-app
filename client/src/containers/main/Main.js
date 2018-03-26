@@ -4,7 +4,7 @@ import { getRectangles, removeRectangle } from "../../services/Service";
 import Header from "../../components/header/Header";
 import Loader from "../../components/loader/Loader";
 import ErrorMessage from "../../components/errorMessage/ErrorMessage";
-import KeenClient from "../../services/KeenClient";
+import KeenClient from "../../utils/KeenClient";
 
 const STATE = {
 	LOADING: "loading",

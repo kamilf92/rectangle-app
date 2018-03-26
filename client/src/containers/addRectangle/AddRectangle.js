@@ -6,7 +6,7 @@ import Header from "../../components/header/Header";
 import Preview from "../../components/preview/Preview";
 import Swipper from "../../components/swipper/Swipper";
 import ColorPicker from "../../components/colorPicker/ColorPicker";
-import KeenClient from "../../services/KeenClient";
+import KeenClient from "../../utils/KeenClient";
 
 const TYPES = {
 	WIDTH: "width",

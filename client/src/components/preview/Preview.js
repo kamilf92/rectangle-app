@@ -11,7 +11,7 @@ const Preview = ({ width, height, color, radius }) => {
 
 	return (
 		<div className="card preview">
-			<div style={styles} />
+			<div style={styles} className="preview__content" />
 		</div>
 	);
 };

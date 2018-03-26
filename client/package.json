@@ -8,13 +8,16 @@
     }
   },
   "dependencies": {
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "keen-explorer": "^3.2.0",
     "keen-js": "^4.3.0",
     "rc-color-picker": "^1.2.3",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.1"
+    "react-scripts": "1.1.1",
+    "react-test-renderer": "^16.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
